@@ -1,15 +1,16 @@
 import "./CartNavigation.css"
 import CartIcon from "../Cart/CartIcon";
+import Button from "../UI/Button";
 
 function CartNavigation() {
     return (
-        <button class='button'>
+        <Button>
         <span class='icon'>
           <CartIcon />
         </span>
         <span>Your Cart</span>
         <span class='badge'>0</span>
-      </button>
+      </Button>
     );
 }
 
