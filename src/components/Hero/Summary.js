@@ -1,8 +1,9 @@
+import Card from "../UI/Card";
 import "./Summary.css"
 
 function Summary() {
     return (
-        <section class='summary'>
+        <Card class='summary'>
         <h2>Delicious Food, Delivered To You</h2>
         <p>
           Choose your favorite meal from our broad selection of available meals
@@ -12,7 +13,7 @@ function Summary() {
           All our meals are cooked with high-quality ingredients, just-in-time and
           of course by experienced chefs!
         </p>
-      </section>
+        </Card>
     );
 }
 
