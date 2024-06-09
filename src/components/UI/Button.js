@@ -3,9 +3,11 @@ import "./Button.css";
 function Button(props) {
     const classes = 'button ' + props.class; 
     return (
-        <div class={classes}>
+        <button
+        class={classes} 
+        type={props.type}>
             {props.children}
-        </div>
+        </button>
     );
 }
 
