@@ -7,10 +7,10 @@ import MealList from './components/Meal/MealList';
 function App() {
   return (
    <>
+   <Cart />
    <Header />
    <Hero />
    <MealList />
-   <Cart />
    </>
   );
 }

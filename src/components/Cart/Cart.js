@@ -2,6 +2,7 @@ import Card from "../UI/Card";
 import CartItem from "./CartItem";
 import "./Cart.css"
 import Button from "../UI/Button";
+import Modal from "../UI/Modal";
 const meals = [
     {
         id: 1,
@@ -32,7 +33,8 @@ const meals = [
 
 function Cart() {
     return (
-        <Card class='cart'>
+        <Modal class="cart card">
+        {/* <Card class='cart'> */}
             <ul>
                 { meals.map(c => <CartItem cartItem={c} />) }
             </ul>
@@ -44,7 +46,8 @@ function Cart() {
                 <Button class="sec-btn">Order</Button>
                 <Button>Close</Button>
             </div>
-        </Card>
+        {/* </Card> */}
+        </Modal>
     );
 }
 
