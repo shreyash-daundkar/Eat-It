@@ -13,7 +13,7 @@ function Modal(props) {
         )
     }
 
-    const Backdrop = props => <div class='backdrop'/>
+    const Backdrop = props => <div class='backdrop' onClick={props.onClick} />
 
     return (
     <>
@@ -24,7 +24,7 @@ function Modal(props) {
         modalRoot
     )}
     {ReactDOM.createPortal(
-        <Backdrop />,
+        <Backdrop onClick={props.onBackdropClick} />,
         modalRoot
     )}
     </>
