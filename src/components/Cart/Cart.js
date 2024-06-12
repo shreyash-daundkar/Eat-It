@@ -3,6 +3,9 @@ import CartItem from "./CartItem";
 import "./Cart.css"
 import Button from "../UI/Button";
 import Modal from "../UI/Modal";
+import { useContext } from "react";
+import { cartContext } from "../../contexts/CartContextProvider";
+
 const meals = [
     {
         id: 1,
@@ -29,12 +32,21 @@ const meals = [
         quantity:1,
     },
 ]
-   
+
+
+
 
 function Cart() {
-    return (
-        <Modal class="cart card">
-        {/* <Card class='cart'> */}
+
+    const cartCtx = useContext(cartContext);
+
+    const closeModal = () => cartCtx.setCartModalOpen(false);
+
+    return cartCtx.cartModalOpen ? (
+        <Modal 
+        class="cart"
+        onBackdropClick={closeModal}
+        >
             <ul>
                 { meals.map(c => <CartItem cartItem={c} />) }
             </ul>
@@ -44,11 +56,10 @@ function Cart() {
             </div>
             <div class="action">
                 <Button class="sec-btn">Order</Button>
-                <Button>Close</Button>
+                <Button onClick={closeModal}>Close</Button>
             </div>
-        {/* </Card> */}
-        </Modal>
-    );
+        </Modal> 
+    ) : null;
 }
 
 export default Cart;
