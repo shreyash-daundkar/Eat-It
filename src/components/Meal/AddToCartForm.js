@@ -2,18 +2,15 @@ import { useState } from "react";
 import Button from "../UI/Button";
 import "./AddToCartForm.css"
 
-function AddToCartForm() {
+function AddToCartForm(props) {
 
     const [quantity, setQuantity] = useState(1);
 
-    const handleQuantity = e => {
-        setQuantity(e.target.value);
-        console.log(quantity)
-    }
+    const handleQuantity = e => setQuantity(+e.target.value);
 
     const addToCart = e => {
         e.preventDefault();
-        console.log(quantity)
+        props.addToCart(quantity);
         setQuantity(1);
     }
 
