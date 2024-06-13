@@ -38,21 +38,23 @@ const meals = [
 
 function Cart() {
 
-    const cartCtx = useContext(cartContext);
+    const { cartModalOpen, setCartModalOpen, cartState } = useContext(cartContext);
 
-    const closeModal = () => cartCtx.setCartModalOpen(false);
+    const closeModal = () => setCartModalOpen(false);
 
-    return cartCtx.cartModalOpen ? (
+    return cartModalOpen ? (
         <Modal 
         class="cart"
         onBackdropClick={closeModal}
         >
             <ul>
-                { meals.map(c => <CartItem cartItem={c} />) }
+                { cartState.cartItems.map(c => <CartItem cartItem={c} key={c.id} />) }
             </ul>
             <div class='total'>
                 <span>Total Amount</span>
-                <span>280</span>
+                <span>
+                    {cartState.amount}
+                </span>
             </div>
             <div class="action">
                 <Button class="sec-btn">Order</Button>
