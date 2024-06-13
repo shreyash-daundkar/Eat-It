@@ -1,9 +1,15 @@
+import { useContext } from "react";
 import Button from "../UI/Button";
 import "./CartItem.css"
+import { cartContext } from "../../contexts/CartContextProvider";
 
 function CartItem(props) {
 
-    const { name, price, quantity } = props.cartItem;
+    const { id, name, price, quantity } = props.cartItem;
+
+    const { decrementQuantity } = useContext(cartContext);
+
+    const reduceQuantity = e => decrementQuantity(id);
 
     return (
         <li class='cart-item'>
@@ -22,7 +28,7 @@ function CartItem(props) {
             </div>
             <div class='change-quantity'>
                 <Button class="sec-btn small-btn">+</Button>
-                <Button class="sec-btn small-btn">-</Button>
+                <Button class="sec-btn small-btn" onClick={reduceQuantity} >-</Button>
             </div>
         </li>
     );
