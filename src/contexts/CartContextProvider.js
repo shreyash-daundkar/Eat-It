@@ -8,6 +8,7 @@ export const cartContext = createContext({
     addToCart: () => {},
     incrementQuantity: () => {},
     decrementQuantity: () => {},
+    placeOrder: () => {},
 });
 
                
@@ -30,8 +31,6 @@ function CartContextProvider(props) {
             payload: state,
         });
     }, []);
-
-    console.log(state)
     
     const addToCart = (meal, quantity) => dispatch({
         type: 'add',
@@ -50,6 +49,8 @@ function CartContextProvider(props) {
         type: '--',
         payload: id,
     });
+
+    const placeOrder = () => dispatch({ type: 'o' });
         
     return (
         <cartContext.Provider value={{
@@ -59,6 +60,7 @@ function CartContextProvider(props) {
             addToCart: addToCart,
             incrementQuantity: incrementQuantity,
             decrementQuantity: decrementQuantity,
+            placeOrder: placeOrder,
         }}>
             {props.children}
         </cartContext.Provider>

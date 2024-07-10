@@ -7,9 +7,10 @@ function CartItem(props) {
 
     const { id, name, price, quantity } = props.cartItem;
 
-    const { decrementQuantity } = useContext(cartContext);
+    const { decrementQuantity, incrementQuantity } = useContext(cartContext);
 
     const reduceQuantity = e => decrementQuantity(id);
+    const addQuantity = e => incrementQuantity(id);
 
     return (
         <li class='cart-item'>
@@ -27,7 +28,7 @@ function CartItem(props) {
                 </div>
             </div>
             <div class='change-quantity'>
-                <Button class="sec-btn small-btn">+</Button>
+                <Button class="sec-btn small-btn" onClick={addQuantity}>+</Button>
                 <Button class="sec-btn small-btn" onClick={reduceQuantity} >-</Button>
             </div>
         </li>

@@ -43,7 +43,7 @@ const cartReducer = (prevState, action) => {
 
         if(cartItem.quantity === 1) {
 
-            cartItems = cartItems.filter(item => item.id ==! id);
+            cartItems = cartItems.filter(item => item.id !== id);
         } else {
 
             cartItem.quantity--;
@@ -58,6 +58,32 @@ const cartReducer = (prevState, action) => {
         localStorage.setItem('cart-state', JSON.stringify(state));
 
         return state;   
+
+    } else if (type === '++') {
+
+        const id = payload;
+
+        const cartItem = cartItems.filter(item => item.id === id)[0];
+        cartItem.quantity++;
+        cartItems = cartItems.map(item => item.id === id ? cartItem : item);
+    
+        const state = {
+            cartItems,
+            amount: amount += cartItem.price,
+        }
+        
+        localStorage.setItem('cart-state', JSON.stringify(state));
+
+        return state;
+
+    } else if (type === 'o') {
+
+        console.log(prevState);
+        
+        return {
+            cartItems: [],
+            amount: 0,
+        }
     }
 }
 

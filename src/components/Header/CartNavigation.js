@@ -6,7 +6,7 @@ import { cartContext } from "../../contexts/CartContextProvider";
 
 function CartNavigation() {
 
-  const { setCartModalOpen } = useContext(cartContext);
+  const { setCartModalOpen, cartState } = useContext(cartContext);
   
   const openCartModal = e => setCartModalOpen(true);
 
@@ -16,7 +16,9 @@ function CartNavigation() {
           <CartIcon />
         </span>
         <span>Your Cart</span>
-        <span class='badge'>0</span>
+        <span class='badge'>
+          {cartState.cartItems.length}
+        </span>
       </Button>
     );
 }
