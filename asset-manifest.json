@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/shreyash-daundkar/Eat-It/static/css/main.e6266306.css",
+    "main.js": "/shreyash-daundkar/Eat-It/static/js/main.4ca237b9.js",
+    "static/media/meals.jpg": "/shreyash-daundkar/Eat-It/static/media/meals.2971f633fc1382581cbf.jpg",
+    "index.html": "/shreyash-daundkar/Eat-It/index.html",
+    "main.e6266306.css.map": "/shreyash-daundkar/Eat-It/static/css/main.e6266306.css.map",
+    "main.4ca237b9.js.map": "/shreyash-daundkar/Eat-It/static/js/main.4ca237b9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6266306.css",
+    "static/js/main.4ca237b9.js"
+  ]
+}
